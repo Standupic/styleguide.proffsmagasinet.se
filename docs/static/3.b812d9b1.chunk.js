@@ -1,0 +1,2 @@
+webpackJsonp([3],{781:function(e,n,t){var o=t(15),r=t(45),s=t(292).PageRenderer;s.__esModule&&(s=s.default);var a=r({displayName:"WrappedPageRenderer",getInitialState:function(){return{content:t(786)}},componentWillMount:function(){},render:function(){return o.createElement(s,Object.assign({},this.props,{content:this.state.content}))}});a.__catalog_loader__=!0,e.exports=a},786:function(e,n){e.exports="This guide is still work in progress. \n\n- [Logos](/logos)\n- [Colors](/colors)\n- [Typography](/typography)"}});
+//# sourceMappingURL=3.b812d9b1.chunk.js.map
