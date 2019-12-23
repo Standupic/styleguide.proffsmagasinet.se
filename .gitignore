@@ -5,3 +5,4 @@ build
 .rpt2_cache
 dist
 packages/**/lib
+docs/CNAME
