@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'kelpt_a3black_italic';
+    src: url('fonts/kelpta3-blackitalic-webfont.woff2') format('woff2'),
+         url('fonts/kelpta3-blackitalic-webfont.woff') format('woff'),
+         url('fonts/kelpta3-blackitalic-webfont.ttf') format('truetype'),
+         url('fonts/kelpta3-blackitalic-webfont.svg#kelpt_a3black_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
