@@ -8,7 +8,7 @@
   },
   "scripts": {
     "storybook": "start-storybook",
-    "build-storybook": "build-storybook -o out-sb",
+    "build-storybook": "build-storybook -o deploy",
     "fable-split": "fable-splitter -c fable-splitter.config.js"
   },
   "devDependencies": {
