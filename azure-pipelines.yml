@@ -28,7 +28,7 @@ jobs:
     inputs:
       command: 'custom'
       custom: 'paket'
-        arguments: 'restore'
+      arguments: 'restore'
   - task: Npm@1
     displayName: npm install
     inputs:
@@ -56,7 +56,7 @@ jobs:
     inputs:
       command: 'custom'
       custom: 'paket'
-        arguments: 'restore'
+      arguments: 'restore'
   - task: Npm@1
     displayName: npm install
     inputs:
