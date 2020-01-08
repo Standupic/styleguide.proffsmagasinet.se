@@ -11,10 +11,14 @@
     "build-storybook": "build-storybook -o deploy",
     "fable-split": "fable-splitter -c fable-splitter.config.js"
   },
+  "browserslist": [
+    "defaults"
+  ],
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
     "@storybook/react": "^5.2.8",
+    "autoprefixer": "^9.7.3",
     "babel-loader": "^8.0.6",
     "copy-webpack-plugin": "^5.1.1",
     "core-js": "^3.6.1",
@@ -27,6 +31,7 @@
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.0",
+    "postcss-loader": "^3.0.0",
     "remotedev": "^0.2.9",
     "sass": "^1.24.0",
     "sass-loader": "^8.0.0",
