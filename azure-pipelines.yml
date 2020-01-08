@@ -1,0 +1,74 @@
+trigger:
+- master
+
+pr:
+  autoCancel: true
+  branches:
+    include:
+    - master
+
+variables:
+  buildConfiguration: 'Release'
+
+jobs:
+- job: Build
+  displayName: Build
+  condition: eq(variables['Build.Reason'], 'PullRequest')
+  pool:
+    vmImage: 'windows-2019'
+  steps:
+  - task: DotNetCoreCLI@2
+    displayName: Dotnet Tool Restore
+    inputs:
+      command: 'custom'
+      custom: 'tool'
+      arguments: 'restore'
+  - task: DotNetCoreCLI@2
+    displayName: Paket restore
+    inputs:
+      command: 'custom'
+      custom: 'paket'
+      arguments: 'restore'
+  - task: Npm@1
+    displayName: npm install
+    inputs:
+      command: 'install'
+  - task: Npm@1
+    displayName: npm run build-storybook
+    inputs:
+      command: 'custom'
+      customCommand: 'run build-storybook'
+
+- job: Publish
+  displayName: Publish
+  condition: not(eq(variables['Build.Reason'], 'PullRequest'))
+  pool:
+    vmImage: 'windows-2019'
+  steps:
+  - task: DotNetCoreCLI@2
+    displayName: Dotnet Tool Restore
+    inputs:
+      command: 'custom'
+      custom: 'tool'
+      arguments: 'restore'
+  - task: DotNetCoreCLI@2
+    displayName: Paket restore
+    inputs:
+      command: 'custom'
+      custom: 'paket'
+      arguments: 'restore'
+  - task: Npm@1
+    displayName: npm install
+    inputs:
+      command: 'install'
+  - task: Npm@1
+    displayName: npm run build-storybook
+    inputs:
+      command: 'custom'
+      customCommand: 'run build-storybook'
+  - task: CopyFiles@2
+    inputs:
+      sourceFolder: './deploy'
+      targetFolder: $(Build.ArtifactStagingDirectory)
+  - task: PublishBuildArtifacts@1
+
