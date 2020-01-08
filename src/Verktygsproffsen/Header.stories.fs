@@ -1,2 +1,1 @@
-module PM.StyleGuide.Verktygsproffsen.HeaderStories
-
+module PM.StyleGuide.Verktygsproffsen.Header

@@ -9,6 +9,7 @@
     <Compile Include="Colors.stories.fs" />
     <Compile Include="Typography.stories.fs" />
     <Compile Include="Verktygsproffsen\Header.stories.fs" />
+    <Compile Include="Verktygsproffsen\Popup.stories.fs" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

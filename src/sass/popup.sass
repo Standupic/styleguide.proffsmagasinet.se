@@ -1,0 +1,75 @@
+@import './mixin'
+
+$btnRedBg: #eb6400
+$btnBlackBg: #000
+
+.btn.__red
+    background-color: $btnRedBg
+    border-color: $btnRedBg
+
+.btn.__black
+    background-color: $btnBlackBg
+
+.popup
+    background: #fff
+    box-shadow: 0 5px 15px rgba(0,0,0,.5)
+    left: 50%
+    max-width: 600px
+    position: fixed
+    top: 50%
+    transform: translate(-50%, -50%)
+    width: 100%
+    z-index: 9999
+    &-inner
+        padding: 25px 10px
+    &-close
+        background: #fff
+        border-radius: 150px
+        cursor: pointer
+        height: 60px
+        position: absolute
+        right: 30px
+        top: -28px
+        width: 60px
+        @include align-items(center)
+        @include flex()
+        @include justify-content(center)
+        img
+            height: 32px
+            width: 32px
+        .fill
+            fill: #969696
+    .popup-logo,
+    .popup-logo-sp
+        // background: url(pm-logo.svg) no-repeat scroll 0 0
+        height: 49px
+        margin: 0 auto
+        width: 320px
+    .popup-logo-sp
+        // background: url(logo.png) no-repeat scroll 0 0
+    .popup-text
+        font-size: 20px
+        margin: -5px 0 15px
+        text-align: center
+    .popup-actions
+        @include flex()
+        @include justify-content(center)
+        text-align: center
+        .btn
+            color: #fff
+            font-size: 26px
+            font-weight: 600
+            height: 65px
+            line-height: 1.2
+            margin: 0 15px
+            padding: 0
+            text-transform: uppercase
+            width: 50%
+            cursor: pointer
+            @include flex()
+            @include flex-grow(1)
+            @include flex-direction(column)
+            @include justify-content(center)
+            .small
+                font-size: 14px
+                font-weight: normal
