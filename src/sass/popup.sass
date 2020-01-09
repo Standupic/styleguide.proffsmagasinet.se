@@ -1,12 +1,12 @@
 $btnRedBg: #eb6400
 $btnBlackBg: #000
 
-.btn.__red
-    background-color: $btnRedBg
-    border-color: $btnRedBg
-
-.btn.__black
-    background-color: $btnBlackBg
+.btn
+    &.__orange
+        background-color: $btnRedBg
+        border-color: $btnRedBg
+    &.__black
+        background-color: $btnBlackBg
 
 .popup
     background: #fff
@@ -37,19 +37,19 @@ $btnBlackBg: #000
             width: 32px
         .fill
             fill: #969696
-    .popup-logo,
-    .popup-logo-sp
+    &-logo,
+    &-logo-sp
         // background: url(pm-logo.svg) no-repeat scroll 0 0
         height: 49px
         margin: 0 auto
         width: 320px
-    .popup-logo-sp
+    &-logo-sp
         // background: url(logo.png) no-repeat scroll 0 0
-    .popup-text
+    &-text
         font-size: 20px
         margin: -5px 0 15px
         text-align: center
-    .popup-actions
+    &-actions
         display: flex
         justify-content: center
         text-align: center

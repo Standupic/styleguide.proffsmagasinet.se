@@ -8,10 +8,7 @@ open Fable.Core.JsInterop
 
 let closeImg: string = importDefault "../svg/close.svg"
 
-type PopUpProps = {
-    Text: string
-}
-
+type PopUpProps = { Text: string }
 
 let Popup =
     FunctionComponent.Of(fun (props : PopUpProps) ->
@@ -31,7 +28,7 @@ let Popup =
                 [ a [ Class "btn __black" ]
                     [ str "Företag"
                       span [ Class "small" ] [ str "EX. MOMS" ]]
-                  a [ Class "btn __red" ]
+                  a [ Class "btn __orange" ]
                     [ str "Privatperson"
                       span [ Class "small" ] [ str "INK. MOMS" ]
                     ]
