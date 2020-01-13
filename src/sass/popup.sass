@@ -1,12 +1,11 @@
-$btnRedBg: #eb6400
-$btnBlackBg: #000
+@use './colors'
 
 .btn
     &.__orange
-        background-color: $btnRedBg
-        border-color: $btnRedBg
+        background-color: colors.$btnRedBg
+        border-color: colors.$btnRedBg
     &.__black
-        background-color: $btnBlackBg
+        background-color: colors.$btnBlackBg
 
 .popup
     background: #fff

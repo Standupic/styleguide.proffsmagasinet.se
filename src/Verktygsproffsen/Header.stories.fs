@@ -7,31 +7,36 @@ open Fable.Core.JsInterop
 
 let iconTrack : string = importDefault "../svg/icon-truk.svg"
 
-type FormOrganization =
-    | Physical
-    | Legal
+type AccountType =
+    | B2B
+    | B2C
 
-type Face =
-    {
-      Face : FormOrganization
-    }
+type AccountTypeProps =
+    { AccountType : AccountType }
+
 
 let Top =
-    FunctionComponent.Of(fun ( props : Face ) ->
+    FunctionComponent.Of(fun ( props : AccountTypeProps ) ->
 
-        let organizationFor face =
-            match face with
-            | Physical ->
+        let textValue =  [ "Privatperson"; "Företag"; ]
+
+        let organizationFor account =
+            match account with
+            | B2C ->
                 "499"
 
-            | Legal ->
+            | B2B ->
                 "625"
 
-        let getAdress face =
-            sprintf "FRI FRAKT ÖVER %s KR EXKL. MOMS" face
+        let getAdress account =
+            sprintf "FRI FRAKT ÖVER %s KR EXKL. MOMS" account
 
-        let getStr param =
-            param |> organizationFor |> getAdress
+        let templateLabel s  =
+             label [ Class "form-control" ]
+                [ input [ Name "accessType"; Type "radio"]
+                  span [ Class "switch" ] [ ]
+                  span [ Class "name" ] [ str (sprintf "%s" s)]
+                ]
 
         div [ Class "container" ]
 
@@ -47,43 +52,20 @@ let Top =
                                   span [ Class "bold" ]
                                     [ str  "018 444 45 25" ] ] ]
 
-                          div [ Class "top-column" ] // adress
+                          div [ Class "top-column" ]
 
-                            [ img [ Src iconTrack
-                                    Alt "" ]
+                            [
                               span [ ]
-                                [ str (organizationFor props.Face |> getAdress) ]
+                                [ str (organizationFor props.AccountType |> getAdress) ]
                             ]
 
-                          div [ Class "top-column" ] // face
-
+                          div [ Class "top-column" ]
                             [ form [ Class "top-form" ]
-                                [ label [ Class "form-control"
-                                          HTMLAttr.Custom ("htmlFor", "privat")
-                                          Id "privatLabel" ]
-                                    [ input [ Name "accessType"
-                                              Id "privat"
-                                              Type "radio"
-                                              Value "customer" ]
-                                      span [ Class "switch" ]
-                                        [ ]
-                                      span [ Class "name" ]
-                                        [ str "Privatperson" ] ]
-                                  label [ Class "form-control"
-                                          HTMLAttr.Custom ("htmlFor", "foretag")
-                                          Id "foretagLabel" ]
-                                    [ input [ Name "accessType"
-                                              Id "foretag"
-                                              Type "radio"
-                                              Value "organization" ]
-                                      span [ Class "switch" ]
-                                        [ ]
-                                      span [ Class "name" ]
-                                        [ str "Företag" ] ] ]
-                                    ]
+                                (textValue |> List.map templateLabel)
                             ]
                         ]
                     ]
                 ]
+            ]
     )
-storiesOf("Header").add("top", fun _ -> Top {Face = Physical} ) |> ignore
+storiesOf("Header").add("top", fun _ -> Top {AccountType = B2C} ) |> ignore

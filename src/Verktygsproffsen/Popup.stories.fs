@@ -10,11 +10,11 @@ let closeImg: string = importDefault "../svg/close.svg"
 
 type PopUpProps = { Text: string }
 
+let getText text =
+     div [ Class "popup-text" ] [str text]
+
 let Popup =
     FunctionComponent.Of(fun (props : PopUpProps) ->
-
-      let getText text =
-        div [ Class "popup-text" ] [str text]
 
       div [ Class "popup" ]
 
