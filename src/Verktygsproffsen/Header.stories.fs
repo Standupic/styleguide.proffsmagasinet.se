@@ -3,9 +3,6 @@ module PM.StyleGuide.Verktygsproffsen.Header
 open Fable.React
 open Fable.React.Props
 open PM.StyleGuide.Storybook
-open Fable.Core.JsInterop
-
-let iconTrack : string = importDefault "../svg/icon-truk.svg"
 
 type AccountType =
     | B2B
@@ -68,4 +65,4 @@ let Top =
                 ]
             ]
     )
-storiesOf("Header").add("top", fun _ -> Top {AccountType = B2C} ) |> ignore
+storiesOf("Header").add("Top", fun _ -> Top {AccountType = B2C} ) |> ignore
