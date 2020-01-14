@@ -42,8 +42,8 @@ module.exports = async ({ config, mode }) => {
             use: [
                 'style-loader',
                 'css-loader',
-                { loader: 'postcss-loader', options: { plugins: [ require('autoprefixer')]} },
-                'sass-loader'
+                { loader: 'postcss-loader', options: { plugins: [ require('autoprefixer')]}},
+                { loader: 'sass-loader', options: { implementation: require('sass')}},
             ],
         },
         {

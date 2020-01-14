@@ -1,0 +1,106 @@
+@use '../colors'
+.top
+    background: colors.$topBg
+    height: 43px
+    position: relative
+    z-index: 500
+    padding: 0 30px
+    &-inner
+        background: inherit
+        color: #fff
+        height: inherit
+        padding-bottom: 0
+        padding-top: 0
+        position: relative
+        display: flex
+        .back
+            background: colors.$yellowColor
+            bottom: 0
+            color: #000
+            font-weight: bold
+            left: 30px
+            margin: 0 15px 0 0
+            padding: 0 10px
+            top: 0
+            align-items: center
+            display: flex
+        .columns
+            height: inherit
+            -webkit-box-align: center
+            -ms-flex-align: center
+            align-items: center
+            display: flex
+            flex-grow: 1
+            justify-content: space-between
+        .top-column
+            color: colors.$colorTextAddress
+            align-items: center
+            display: flex
+            img
+                margin: 0 5px 0 0
+            &:last-child
+                align-self: flex-end
+            &:nth-of-type(2)
+                background: url(../svg/icon-truk.svg) no-repeat 0 0
+                padding: 0 0 0 27px
+        .top-text
+            color: colors.$topChatText
+            margin: 0 20px 0 0
+        .top-chat
+            .chat-online
+                color: colors.$topChatOnline
+            .chat-offline
+                color: colors.$topChatoffline
+            a
+                color: colors.$topChatText
+        .bold
+            font-weight: 700
+        .white
+            color: #fff
+        .top-form
+            height: 30px
+            position: relative
+            width: 180px
+            align-items: center
+            display: flex
+            .form-control
+                cursor: pointer
+                height: 100%
+                position: relative
+                width: 50%
+                align-items: center
+                display: flex
+                justify-content: center
+                input
+                    display: none
+                    &:checked
+                        & ~ .switch
+                            background: colors.$inputCheked
+                        & ~ .name
+                            color: colors.$colorNameChecked
+                .name
+                    color: colors.$formNameText
+                    font-size: 12px
+                    font-weight: 600
+                    position: relative
+                    z-index: 5
+                .switch
+                    border-radius: 5px 5px 0 0
+                    height: 100%
+                    left: 0
+                    padding: 0 15px
+                    position: absolute
+                    right: 0
+        .top-price
+            color: colors.$formNameText
+            font-size: 12px
+            margin: 0 0 0 20px
+            text-transform: uppercase
+            width: 175px
+        .top-login
+            // background: url(login-ico.png) no-repeat scroll 0 0
+            color: #fff
+            font-size: 11px
+            font-weight: bold
+            padding: 0 0 0 28px
+            text-transform: uppercase

@@ -14,6 +14,7 @@ type ColorProps = {
    RgbaColor : string
 }
 
+
 let ColorRect =
     FunctionComponent.Of (fun (props : ColorProps) ->
         let colorLabel color =
@@ -26,7 +27,7 @@ let ColorRect =
                     MarginBottom 5
                 ]
             ] [ str color ]
-            
+
         div [
             Style [
                 Margin 10
