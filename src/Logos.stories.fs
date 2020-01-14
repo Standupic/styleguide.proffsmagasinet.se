@@ -20,7 +20,7 @@ let ProShapeLogo =
     FunctionComponent.Of (fun () ->
         span [ ClassName "logo_proshape" ] [] )
 
-storiesOf("Logos")
+storiesOf("Styles|Logos")
     .add("Proffsmagasinet", ProffsmagasinetLogo)
     .add("StayPro", StayProLogo)
     .add("Pro", ProLogo)
