@@ -21,4 +21,4 @@ let SearchInput =
         ]
     )
 
-storiesOf("Header").add("SearchInput", fun _ -> SearchInput {Search = ""}) |> ignore
+storiesOf("Verktygsproffsen|Header").add("SearchInput", fun _ -> SearchInput {Search = ""}) |> ignore

@@ -56,4 +56,4 @@ let Top =
                 ]
             ]
     )
-storiesOf("Header").add("Top", fun _ -> Top {AccountType = B2B} ) |> ignore
+storiesOf("Verktygsproffsen|Header").add("Top", fun _ -> Top {AccountType = B2B} ) |> ignore
