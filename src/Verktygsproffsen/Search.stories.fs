@@ -4,10 +4,6 @@ open Fable.React
 open Fable.React.Props
 open PM.StyleGuide.Storybook
 
-// Should i use <option> type?
-// It will get rid of it will get rid of checking on an empty string in future?
-// also, allow us to manage behaviour when values no.
-
 type SearchInputType = {Search: string}
 
 let SearchInput =

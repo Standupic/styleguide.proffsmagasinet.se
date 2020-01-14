@@ -11,28 +11,21 @@ type AccountType =
 type AccountTypeProps =
     { AccountType : AccountType }
 
+let freeDeliveryText = function
+    | B2C -> "FRI FRAKT ÖVER 625 KR INCL. MOMS"
+    | B2B -> "FRI FRAKT ÖVER 499 KR EXKL. MOMS"
+let getAccountLabel = function
+    | B2C -> "Privatperson"
+    | B2B -> "Företag"
 
 let Top =
     FunctionComponent.Of(fun ( props : AccountTypeProps ) ->
 
-        let textValue =  [ "Privatperson"; "Företag"; ]
-
-        let organizationFor account =
-            match account with
-            | B2C ->
-                "499"
-
-            | B2B ->
-                "625"
-
-        let getAdress account =
-            sprintf "FRI FRAKT ÖVER %s KR EXKL. MOMS" account
-
-        let templateLabel s  =
-             label [ Class "form-control" ]
-                [ input [ Name "accessType"; Type "radio"]
+        let accountTypeSwitchOption accountType =
+            label [ Class "form-control" ]
+                [ input [ Name "accessType"; Type "radio"; Checked (accountType = props.AccountType)]
                   span [ Class "switch" ] [ ]
-                  span [ Class "name" ] [ str (sprintf "%s" s)]
+                  span [ Class "name" ] [ str (accountType |> getAccountLabel)]
                 ]
 
         div [ Class "container" ]
@@ -50,19 +43,17 @@ let Top =
                                     [ str  "018 444 45 25" ] ] ]
 
                           div [ Class "top-column" ]
-
-                            [
-                              span [ ]
-                                [ str (organizationFor props.AccountType |> getAdress) ]
-                            ]
+                            [ span [ ] [ str (freeDeliveryText props.AccountType) ] ]
 
                           div [ Class "top-column" ]
                             [ form [ Class "top-form" ]
-                                (textValue |> List.map templateLabel)
+                                [ accountTypeSwitchOption B2C
+                                  accountTypeSwitchOption B2B
+                                ]
                             ]
                         ]
                     ]
                 ]
             ]
     )
-storiesOf("Header").add("Top", fun _ -> Top {AccountType = B2C} ) |> ignore
+storiesOf("Header").add("Top", fun _ -> Top {AccountType = B2B} ) |> ignore

@@ -33,7 +33,7 @@
             flex-grow: 1
             justify-content: space-between
         .top-column
-            color: #ff6e02
+            color: colors.$colorTextAddress
             align-items: center
             display: flex
             img
@@ -44,15 +44,15 @@
                 background: url(../svg/icon-truk.svg) no-repeat 0 0
                 padding: 0 0 0 27px
         .top-text
-            color: #fff
+            color: colors.$topChatText
             margin: 0 20px 0 0
         .top-chat
             .chat-online
-                color: #00d03d
+                color: colors.$topChatOnline
             .chat-offline
-                color: #c0392b
+                color: colors.$topChatoffline
             a
-                color: #fff
+                color: colors.$topChatText
         .bold
             font-weight: 700
         .white
@@ -75,11 +75,11 @@
                     display: none
                     &:checked
                         & ~ .switch
-                            background: #322a24
+                            background: colors.$inputCheked
                         & ~ .name
-                            color: #fff
+                            color: colors.$colorNameChecked
                 .name
-                    color: #b2b2b2
+                    color: colors.$formNameText
                     font-size: 12px
                     font-weight: 600
                     position: relative
@@ -92,7 +92,7 @@
                     position: absolute
                     right: 0
         .top-price
-            color: #b2b2b2
+            color: colors.$formNameText
             font-size: 12px
             margin: 0 0 0 20px
             text-transform: uppercase
