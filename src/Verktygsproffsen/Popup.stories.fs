@@ -40,4 +40,4 @@ let Popup =
 
 
 
-storiesOf("Popup").add("popup", fun _ -> Popup {Text = "Vänligen välj företag eller privat"}) |> ignore
+storiesOf("Verktygsproffsen|Popup").add("popup", fun _ -> Popup {Text = "Vänligen välj företag eller privat"}) |> ignore

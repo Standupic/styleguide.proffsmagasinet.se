@@ -113,6 +113,6 @@ let Typographies =
              |> List.map Typography)
         )
 
-storiesOf("Typography")
+storiesOf("Styles|Typography")
     .add("Typography", Typographies)
     |> ignore

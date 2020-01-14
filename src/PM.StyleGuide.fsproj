@@ -4,7 +4,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Storybook.fs" />
-    <Compile Include="AppButton.stories.fs" />
     <Compile Include="Logos.stories.fs" />
     <Compile Include="Colors.stories.fs" />
     <Compile Include="Typography.stories.fs" />

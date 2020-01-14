@@ -124,7 +124,7 @@ let Palette =
             ]
         div [] (palettes |> List.map (fun p -> PaletteSeq { Colors = p })))
 
-storiesOf("Colors")
+storiesOf("Styles|Colors")
     .add("Main Colors", MainColors)
     .add("Palette", Palette)
     |> ignore
