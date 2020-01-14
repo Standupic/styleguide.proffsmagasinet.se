@@ -23,7 +23,11 @@ let Top =
 
         let accountTypeSwitchOption accountType =
             label [ Class "form-control" ]
-                [ input [ Name "accessType"; Type "radio"; Checked (accountType = props.AccountType)]
+                [ input [ Name "accessType"
+                          Type "radio"
+                          OnChange ignore
+                          Checked (accountType = props.AccountType)
+                         ]
                   span [ Class "switch" ] [ ]
                   span [ Class "name" ] [ str (accountType |> getAccountLabel)]
                 ]
