@@ -6,7 +6,7 @@ open Fable.React.Props
 open PM.StyleGuide.Storybook
 open Fable.Core.JsInterop
 
-let closeImg: string = importDefault "../svg/close.svg"
+let closeImg: string = importDefault "../images/svg/close.svg"
 
 type PopUpProps = { Text: string }
 

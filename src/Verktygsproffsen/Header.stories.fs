@@ -4,22 +4,27 @@ open Fable.React
 open Fable.React.Props
 open PM.StyleGuide.Storybook
 
+
 type AccountType =
     | B2B
     | B2C
 
-type AccountTypeProps =
-    { AccountType : AccountType }
+type TypeProps = {
+    AccountType : AccountType
+    TelephoneType : string
+}
 
 let freeDeliveryText = function
     | B2C -> "FRI FRAKT ÖVER 625 KR INCL. MOMS"
     | B2B -> "FRI FRAKT ÖVER 499 KR EXKL. MOMS"
+
 let getAccountLabel = function
     | B2C -> "Privatperson"
     | B2B -> "Företag"
 
 let Top =
-    FunctionComponent.Of(fun ( props : AccountTypeProps ) ->
+    FunctionComponent.Of(fun ( props : TypeProps ) ->
+
 
         let accountTypeSwitchOption accountType =
             label [ Class "form-control" ]
@@ -44,7 +49,7 @@ let Top =
                             [ div [ Class "top-text" ]
                                 [ span [] [ str "Kontakta oss " ]
                                   span [ Class "bold" ]
-                                    [ str  "018 444 45 25" ] ] ]
+                                    [ str  (sprintf "%s" props.TelephoneType)] ] ]
 
                           div [ Class "top-column" ]
                             [ span [ ] [ str (freeDeliveryText props.AccountType) ] ]
@@ -60,4 +65,4 @@ let Top =
                 ]
             ]
     )
-storiesOf("Verktygsproffsen|Header").add("Top", fun _ -> Top {AccountType = B2B} ) |> ignore
+storiesOf("Verktygsproffsen|Header").add("Top", fun _ -> Top {AccountType = B2B; TelephoneType = "018 444 45 25"} ) |> ignore
