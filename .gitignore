@@ -11,3 +11,5 @@ output/
 temp/
 .ionide/
 .idea/
+.vs/
+package-lock.json

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
@@ -7,6 +7,9 @@
     <Compile Include="Logos.stories.fs" />
     <Compile Include="Colors.stories.fs" />
     <Compile Include="Typography.stories.fs" />
+    <Compile Include="Verktygsproffsen\FooterTop.stories.fs" />
+    <Compile Include="Verktygsproffsen\FooterList.stories.fs" />
+    <Compile Include="Verktygsproffsen\FooterSocialLink.stories.fs" />
     <Compile Include="Verktygsproffsen\Header.stories.fs" />
     <Compile Include="Verktygsproffsen\Popup.stories.fs" />
     <Compile Include="Verktygsproffsen\Search.stories.fs" />
