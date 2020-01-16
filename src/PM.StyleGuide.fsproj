@@ -8,6 +8,7 @@
     <Compile Include="Colors.stories.fs" />
     <Compile Include="Typography.stories.fs" />
     <Compile Include="Verktygsproffsen\FooterTop.stories.fs" />
+    <Compile Include="Verktygsproffsen\FooterBottom.stories.fs" />
     <Compile Include="Verktygsproffsen\FooterList.stories.fs" />
     <Compile Include="Verktygsproffsen\FooterSocialLink.stories.fs" />
     <Compile Include="Verktygsproffsen\Header.stories.fs" />

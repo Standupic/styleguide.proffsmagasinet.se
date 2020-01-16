@@ -3,6 +3,7 @@ module PM.StyleGuide.Verktygsproffsen.FooterTop
 open Fable.React
 open Fable.React.Props
 open PM.StyleGuide.Storybook
+open Fable.Core.JsInterop
 
 type AccountType =
     | B2B
@@ -11,63 +12,41 @@ type AccountType =
 type AccountTypeProps =
     { AccountType : AccountType }
 
-let freeDeliveryDescription = function
-    | B2C -> "På beställningar över 625 kr inkl. moms"
-    | B2B -> "På beställningar över 499 kr inkl. moms"
+type ColumnProps = {
+    ImageUrl : string
+    Title : string
+    Description : string
+}
 
 let openPurchaseDescription = "Gäller för obrukad maskin i hela 30 dagar"
 let secureEcomerceDescription = "Vi använder säkra och tillförlitliga betalsystem"
 
-let freeDeliveryFigure = "https://www.verktygsproffsen.se/themes/assets/static/icon-truck-2.svg"
-let openPurchaseFigure = "https://www.verktygsproffsen.se/themes/assets/static/icon-box.svg"
-let secureEcomerceFigure = "https://www.verktygsproffsen.se/themes/assets/static/icon-lock.svg"
+let freeDeliveryImg: string = importDefault "../svg/icon-truck-gray.svg"
+let openPurchaseImg: string = importDefault "../svg/icon-box.svg"
+let secureEcomerceImg: string = importDefault "../svg/icon-lock.svg"
 
 // Footer Top Elements
   
 let FooterTopElement =
     FunctionComponent.Of(fun ( props : AccountTypeProps ) ->
 
-        div [ Class "footer-top" ] 
+        let freeDeliveryDescription = function
+            | B2C -> "På beställningar över 625 kr inkl. moms"
+            | B2B -> "På beställningar över 499 kr inkl. moms"
 
-            [ div [ Class "footer-adv responsive" ] 
+        let columns = [ { ImageUrl = freeDeliveryImg; Title = "Fri Frakt"; Description = props.AccountType |> freeDeliveryDescription }        
+                        { ImageUrl = openPurchaseImg; Title = "Öppet köp"; Description = openPurchaseDescription }
+                        { ImageUrl = secureEcomerceImg; Title = "Trygg e-handel"; Description = secureEcomerceDescription } ]
 
-                [ div [ Class "footer-col" ]        
-                
-                    [ figure [] [ img [ Src freeDeliveryFigure ] ]
-                                                
-                      div [ Class "footer-other" ]     
-                        [ 
-                            div [ Class "footer-t" ] [ str "Fri Frakt" ]
-                    
-                            div [ Class "footer-descr" ] [ props.AccountType |> freeDeliveryDescription |> str ] 
-                        ] 
-                    ] 
+        let FooterColumn (columnProps : ColumnProps)  = 
+            div [ Class "footer-col" ]            
+              [ figure [] [ img [ Src columnProps.ImageUrl ] ]                                            
+                div [ Class "footer-other" ]     
+                  [ div [ Class "footer-t" ] [ columnProps.Title |> str ]                
+                    div [ Class "footer-descr" ] [ columnProps.Description |> str ] ] ]
 
-                  div [ Class "footer-col" ]        
-                  
-                    [ figure [] [ img [ Src openPurchaseFigure ] ]
-                                                  
-                      div [ Class "footer-other" ]     
-                        [ 
-                            div [ Class "footer-t" ] [ str "Öppet köp" ]
-                      
-                            div [ Class "footer-descr" ] [ str openPurchaseDescription ] 
-                        ] 
-                    ]
-
-                  div [ Class "footer-col" ]        
-                  
-                    [ figure [] [ img [ Src secureEcomerceFigure ] ]
-                                                  
-                      div [ Class "footer-other" ]     
-                        [ 
-                            div [ Class "footer-t" ] [ str "Trygg e-handel" ]
-                      
-                            div [ Class "footer-descr" ] [ str secureEcomerceDescription ] 
-                        ] 
-                    ] 
-                ] 
-            ]
+        div [ Class "footer-top" ]
+            [ div [ Class "footer-adv responsive" ] (columns |> List.map (fun columnProps ->  columnProps |> FooterColumn)) ]
     )
 
 storiesOf("Verktygsproffsen|Footer").add("Top", fun _ -> FooterTopElement{AccountType = B2C}) |> ignore

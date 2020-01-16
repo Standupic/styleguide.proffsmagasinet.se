@@ -1,25 +1,26 @@
-.footer-bot
-	background: black
+@use '../colors'
+
+.footer-row
+	background: colors.$blackColor
 	margin: 0 auto
 	padding: 30px
 	-webkit-box-sizing: border-box
 	box-sizing: border-box
+	font-size: 14px
+	color: colors.$whiteColor
 
 	.footer-t
-		color: #fff
 		font-size: 18px
 		font-weight: 600
 		margin: 0 0 5px
 
-	ul.list
+	.list
 		min-width: 220px
 		padding: 0
 		list-style: none
 		display: inline-block
 		vertical-align: top
-
-		li
-			color: #fff
+		margin: 14px 0
 
 		.list-t
 			font-size: 18px
@@ -33,7 +34,7 @@
 			color: rgba(255,255,255,.5)
 			text-decoration: underline
 
-	ul.list.list-socials
+	.list.list-socials
 		display: flex
 		flex-wrap: wrap
 		margin: 0
@@ -48,4 +49,42 @@
 
 				img
 					margin: 0 5px 0 0
-			
+		
+.footer-row.footer-bottom
+	display: table
+	width: 100%
+
+	.footer-col:nth-child(2)
+		float: right 
+		margin-top: 15px
+
+	.footer-col
+		display: inline-table
+		vertical-align: bottom
+		max-width: 50%
+
+		.logo 
+			width: 180px
+			display: inline-block
+
+		.list
+			margin: 0
+			line-height: 32px
+
+			.list-item
+				margin: 0 20px 0 0
+				display: inline-block
+
+				img
+					height: 15px
+
+		.copy
+			display: inline-block
+			line-height: 30px
+			vertical-align: bottom
+			margin: 0 0 0 20px
+
+		.footer-text
+			display: inline
+			line-height: 28px
+			margin-right: 15px

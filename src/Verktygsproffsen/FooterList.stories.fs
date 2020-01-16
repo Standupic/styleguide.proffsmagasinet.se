@@ -4,36 +4,29 @@ open Fable.React
 open Fable.React.Props
 open PM.StyleGuide.Storybook
 
+let listItems = [ "Vanliga frågor"; "Kontakta oss"; "Försäljning- och leveransvilkor"; "Retur"; "Reklamation & Garanti"; 
+                  "Lediga tjänster"; "Vår webb"; "Personuppgifter"; "Cookies och GDPR" ]
+
 let FooterListElement =
     FunctionComponent.Of(fun () ->
 
-        div [ Class "footer-bot" ] 
+        let ListItem childElement = 
+            li [ ] [ childElement ]
 
-            [ div [ Class "footer-row" ] 
+        let AnchorTag url text = 
+            a [ Href url ] [ text |> str ]
 
-                [ div [ Class "footer-col" ] 
+        div [ Class "footer-row" ] 
+            [ div [ Class "footer-col" ] 
+                [ div [ Class "list" ]                     
+                    [ div [ Class "list-t" ] [ "Kontakta" |> str ]
+                      "info@verktygsproffsen.se" |> AnchorTag "mailto:info@verktygsproffsen.se"
+                      div [ Class "list-t" ] [ "018 444 45 25" |> str ]
+                      "Telefon Må-Fr: 07-16" |> str |> ListItem ]
 
-                    [ ul [ Class "list" ]                     
-                        [ li [ Class "list-t" ] [ str "Kontakta" ] 
-                          li [ ] [ a [ Href "mailto:info@verktygsproffsen.se" ] [ str "info@verktygsproffsen.se" ] ] 
-                          li [ Class "list-t" ] [ str "018 444 45 25" ] 
-                          li [ ] [ str "Telefon Må-Fr: 07-16" ] ]
-
-                      ul [ Class "list" ]                       
-                        [ li [ Class "list-t" ] [ str "Kundtjänst" ] 
-                          li [ ] [ a [ Href "#" ] [ str "Vanliga frågor" ] ] 
-                          li [ ] [ a [ Href "#" ] [ str "Kontakta oss" ] ] 
-                          li [ ] [ a [ Href "#" ] [ str "Försäljning- och leveransvilkor" ] ] 
-                          li [ ] [ a [ Href "#" ] [ str "Retur" ] ] 
-                          li [ ] [ a [ Href "#" ] [ str "Reklamation & Garanti" ] ] 
-                          li [ ] [ a [ Href "#" ] [ str "Lediga tjänster" ] ] 
-                          li [ ] [ a [ Href "#" ] [ str "Vår webb" ] ] 
-                          li [ ] [ a [ Href "#" ] [ str "Personuppgifter" ] ] 
-                          li [ ] [ a [ Href "#" ] [ str "Cookies och GDPR" ] ] 
-                        ]
-                    ]
-                ]
-            ]
+                  ul [ Class "list" ]                       
+                    [ li [ Class "list-t" ] [ "Kundtjänst" |> str ]
+                      listItems |> List.map (fun text ->  text |> AnchorTag "#" |> ListItem) ] ] ]
     )
 
 storiesOf("Verktygsproffsen|Footer").add("List", fun _ -> FooterListElement()) |> ignore
