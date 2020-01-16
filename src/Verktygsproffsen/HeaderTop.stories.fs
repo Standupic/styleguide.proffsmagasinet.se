@@ -1,15 +1,12 @@
-module PM.StyleGuide.Verktygsproffsen.Header
+module PM.StyleGuide.Verktygsproffsen.HeaderTop
 
 open Fable.React
 open Fable.React.Props
 open PM.StyleGuide.Storybook
+open CommonTypes
 
 
-type AccountType =
-    | B2B
-    | B2C
-
-type TypeProps = {
+type HeaderTopProps = {
     AccountType : AccountType
     TelephoneType : string
 }
@@ -22,8 +19,8 @@ let getAccountLabel = function
     | B2C -> "Privatperson"
     | B2B -> "Företag"
 
-let Top =
-    FunctionComponent.Of(fun ( props : TypeProps ) ->
+let HeaderTop =
+    FunctionComponent.Of(fun ( props : HeaderTopProps ) ->
 
 
         let accountTypeSwitchOption accountType =
@@ -65,4 +62,4 @@ let Top =
                 ]
             ]
     )
-storiesOf("Verktygsproffsen|Header").add("Top", fun _ -> Top {AccountType = B2B; TelephoneType = "018 444 45 25"} ) |> ignore
+storiesOf("Verktygsproffsen|HeaderTop").add("HeaderTop", fun _ -> HeaderTop {AccountType = B2B; TelephoneType = "018 444 45 25"} ) |> ignore

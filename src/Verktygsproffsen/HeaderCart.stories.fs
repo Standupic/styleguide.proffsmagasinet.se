@@ -1,43 +1,44 @@
 module PM.StyleGuide.Verktygsproffsen.HeaderCart
 
+
 open Fable.React
 open Fable.React.Props
 open PM.StyleGuide.Storybook
+open CommonTypes
 
-type AccountType =
-    | B2B
-    | B2C
 
-type TypeProps = {
-    AccountType : AccountType
-    quantity : int
-    total: int
-}
+type TypeProps =
+    {
+        AccountType : AccountType
+        Quantity : int
+        Total : string
+        TotalWithTax : string
+    }
 
-let accountTypeSwitchTax = function
-    | B2B -> 100
-    | B2C -> 0
 
 let HeaderCart =
     FunctionComponent.Of(fun (props : TypeProps) ->
 
-    let getInvoice tax total =
-        (tax + total).ToString() + " Kr"
+    let accountTypeSwitchTax = function
+    | B2B -> props.Total
+    | B2C -> props.TotalWithTax
 
     div [ Class "header-cart" ]
 
         [ div [ Class "count" ]
-              [ str ((sprintf "%d" props.quantity)) ]
+              [ ofInt props.Quantity ]
           div [ Class "count" ]
-              [ str ((accountTypeSwitchTax props.AccountType) |> getInvoice props.total) ]
+              [ str (accountTypeSwitchTax props.AccountType) ]
           div [ Class "cart-ico" ]
               [ ]
         ]
+
     )
 
 storiesOf("Verktygsproffsen|Header").add("HeaderCart", fun _ ->
     HeaderCart {
                  AccountType = B2B
-                 quantity = 3
-                 total = 1000
+                 Quantity = 3
+                 Total = "100 kr"
+                 TotalWithTax = "10100 kr"
                }) |> ignore
