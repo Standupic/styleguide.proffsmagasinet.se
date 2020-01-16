@@ -1,4 +1,4 @@
-module PM.StyleGuide.Verktygsproffsen.Search
+module PM.StyleGuide.Verktygsproffsen.HeaderSearch
 
 open Fable.React
 open Fable.React.Props
@@ -6,7 +6,7 @@ open PM.StyleGuide.Storybook
 
 type SearchInputType = {Search: string}
 
-let SearchInput =
+let HeaderSearch =
     FunctionComponent.Of(fun (props : SearchInputType) ->
 
         form [ Id "searchForm"
@@ -21,4 +21,4 @@ let SearchInput =
         ]
     )
 
-storiesOf("Verktygsproffsen|Header").add("SearchInput", fun _ -> SearchInput {Search = ""}) |> ignore
+storiesOf("Verktygsproffsen|Header").add("HeaderSearch", fun _ -> HeaderSearch {Search = ""}) |> ignore

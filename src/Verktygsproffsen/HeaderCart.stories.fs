@@ -7,7 +7,7 @@ open PM.StyleGuide.Storybook
 open CommonTypes
 
 
-type TypeProps =
+type HeaderCartProps =
     {
         AccountType : AccountType
         Quantity : int
@@ -17,7 +17,7 @@ type TypeProps =
 
 
 let HeaderCart =
-    FunctionComponent.Of(fun (props : TypeProps) ->
+    FunctionComponent.Of(fun (props : HeaderCartProps) ->
 
     let accountTypeSwitchTax = function
     | B2B -> props.Total

@@ -62,4 +62,9 @@ let HeaderTop =
                 ]
             ]
     )
-storiesOf("Verktygsproffsen|HeaderTop").add("HeaderTop", fun _ -> HeaderTop {AccountType = B2B; TelephoneType = "018 444 45 25"} ) |> ignore
+
+storiesOf("Verktygsproffsen|HeaderTop").add("HeaderTop", fun _ ->
+        HeaderTop {
+                    AccountType = B2B
+                    TelephoneType = "018 444 45 25"
+                 }) |> ignore
