@@ -25,7 +25,7 @@ let HeaderMeduim =
                       HeaderCart {
                         AccountType = B2B
                         Quantity = 3
-                        Total = "100 kr"
+                        Total = "0 kr"
                         TotalWithTax = "10100 kr"
                         }
                   ]
