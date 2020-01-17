@@ -26,7 +26,7 @@ let openPurchaseImg: string = importDefault "../svg/icon-box.svg"
 let secureEcomerceImg: string = importDefault "../svg/icon-lock.svg"
 
 // Footer Top Elements
-  
+
 let FooterTopElement =
     FunctionComponent.Of(fun ( props : AccountTypeProps ) ->
 
@@ -34,19 +34,25 @@ let FooterTopElement =
             | B2C -> "På beställningar över 625 kr inkl. moms"
             | B2B -> "På beställningar över 499 kr inkl. moms"
 
-        let columns = [ { ImageUrl = freeDeliveryImg; Title = "Fri Frakt"; Description = props.AccountType |> freeDeliveryDescription }        
-                        { ImageUrl = openPurchaseImg; Title = "Öppet köp"; Description = openPurchaseDescription }
-                        { ImageUrl = secureEcomerceImg; Title = "Trygg e-handel"; Description = secureEcomerceDescription } ]
+        let columns : ColumnProps List = [ { ImageUrl = freeDeliveryImg
+                                             Title = "Fri Frakt"
+                                             Description = props.AccountType |> freeDeliveryDescription }
+                                           { ImageUrl = openPurchaseImg
+                                             Title = "Öppet köp"
+                                             Description = openPurchaseDescription }
+                                           { ImageUrl = secureEcomerceImg
+                                             Title = "Trygg e-handel"
+                                             Description = secureEcomerceDescription } ]
 
-        let FooterColumn (columnProps : ColumnProps)  = 
-            div [ Class "footer-col" ]            
-              [ figure [] [ img [ Src columnProps.ImageUrl ] ]                                            
-                div [ Class "footer-other" ]     
-                  [ div [ Class "footer-t" ] [ columnProps.Title |> str ]                
+        let footerColumn columnProps =
+            div [ Class "footer-col" ]
+              [ figure [] [ img [ Src columnProps.ImageUrl ] ]
+                div [ Class "footer-other" ]
+                  [ div [ Class "footer-t" ] [ columnProps.Title |> str ]
                     div [ Class "footer-descr" ] [ columnProps.Description |> str ] ] ]
 
         div [ Class "footer-top" ]
-            [ div [ Class "footer-adv responsive" ] (columns |> List.map (fun columnProps ->  columnProps |> FooterColumn)) ]
+            [ div [ Class "footer-adv responsive" ] (columns |> List.map footerColumn) ]
     )
 
 storiesOf("Verktygsproffsen|Footer").add("Top", fun _ -> FooterTopElement{AccountType = B2C}) |> ignore

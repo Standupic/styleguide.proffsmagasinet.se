@@ -19,16 +19,16 @@ let socialLinks = [ { ImageSource = facebookImg ; Text = "Facebook" }
 let FooterListElement =
     FunctionComponent.Of(fun () ->
 
-        let ListItem socialLink = 
-            li [ Class "list-item" ] 
-                [ a [ Href "#" ] 
+        let listItem socialLink =
+            li [ Class "list-item" ]
+                [ a [ Href "#" ]
                     [ img [ Src socialLink.ImageSource ]
                       str socialLink.Text ] ]
 
-        div [ Class "footer-row" ] 
-            [ div [ Class "footer-col" ] 
+        div [ Class "footer-row" ]
+            [ div [ Class "footer-col" ]
                 [ div [ Class "footer-t" ] [ str "Följ oss för idéer, erbjudanden, och mer!" ]
-                  ul [ Class "list list-socials" ] (socialLinks |> List.map (fun socialLink ->  socialLink |> ListItem)) ] ]
+                  ul [ Class "list list-socials" ] (socialLinks |> List.map listItem)) ] ]
     )
 
 storiesOf("Verktygsproffsen|Footer").add("SocialLinks", fun _ -> FooterListElement()) |> ignore
