@@ -1,0 +1,33 @@
+@use './../colors'
+
+.marketing-categories
+  display: flex
+  flex-wrap: wrap
+  list-style: none
+  padding: 0
+  margin-bottom: 20px
+  .list-item
+    box-sizing: border-box
+    padding: 5px 15px
+    width: 33.3333%
+    .list-link
+      background: colors.$backgroundColor
+      border-radius: 5px
+      color: colors.$textColor
+      display: block
+      font-size: 20px
+      padding: 15px
+      position: relative
+      text-decoration: unset
+
+// Media Queries
+
+@media (max-width: 1019px) and (min-width: 601px)
+  .marketing-categories
+    .list-item
+      width: 50%
+
+@media all and (max-width: 600px)
+  .marketing-categories
+    .list-item
+      width: 100%
