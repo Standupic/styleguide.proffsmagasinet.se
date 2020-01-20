@@ -19,7 +19,7 @@ let HeaderMeduim =
                 [ div [ Class "column" ]
                    [ a [ ]
                        [ img [ Src logo ] ]
-                     HeaderSearch { Search = "" }
+                     HeaderSearch { Keyword = "" }
                     ]
                   div [ Class "column" ] [
                       HeaderCart {
