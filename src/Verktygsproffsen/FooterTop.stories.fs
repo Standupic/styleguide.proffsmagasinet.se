@@ -32,15 +32,24 @@ let FooterTopElement =
             | B2C -> "På beställningar över 625 kr inkl. moms"
             | B2B -> "På beställningar över 499 kr inkl. moms"
 
-        let columns : ColumnProps List = [ { ImageUrl = freeDeliveryImg
-                                             Title = "Fri Frakt"
-                                             Description = props.AccountType |> freeDeliveryDescription }
-                                           { ImageUrl = openPurchaseImg
-                                             Title = "Öppet köp"
-                                             Description = openPurchaseDescription }
-                                           { ImageUrl = secureEcomerceImg
-                                             Title = "Trygg e-handel"
-                                             Description = secureEcomerceDescription } ]
+        let columns : ColumnProps List =
+          [
+            {
+              ImageUrl = freeDeliveryImg
+              Title = "Fri Frakt"
+              Description = props.AccountType |> freeDeliveryDescription
+            }
+            {
+              ImageUrl = openPurchaseImg
+              Title = "Öppet köp"
+              Description = openPurchaseDescription
+            }
+            {
+              ImageUrl = secureEcomerceImg
+              Title = "Trygg e-handel"
+              Description = secureEcomerceDescription
+            }
+          ]
 
         let footerColumn columnProps =
             div [ Class "footer-col" ]
