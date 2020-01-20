@@ -5,7 +5,6 @@ open PM.StyleGuide
 open System
 open Fable.React
 open Fable.React.Props
-open Fable.React.Props
 open Storybook
 
 type ColorProps = {

@@ -6,11 +6,13 @@ open PM.StyleGuide.Storybook
 open CommonTypes
 
 
+
 type HeaderTopProps =
     {
         AccountType : AccountType
         PhoneNumber : string
     }
+
 
 let freeDeliveryText = function
     | B2C -> "FRI FRAKT ÖVER 625 KR INCL. MOMS"
@@ -47,7 +49,9 @@ let HeaderTop =
                             [ div [ Class "top-text" ]
                                 [ span [] [ str "Kontakta oss " ]
                                   span [ Class "bold" ]
+
                                     [ str  props.PhoneNumber ] ] ]
+
 
                           div [ Class "top-column" ]
                             [ span [ ] [ str (freeDeliveryText props.AccountType) ] ]
