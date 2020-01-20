@@ -3,30 +3,36 @@
 .footer-top
     padding: 20px 30px
     background: colors.$grayBackground
-
     .responsive
         margin: 0 auto
         padding: 30px
         box-sizing: border-box
-    
     .footer-adv
         display: flex
         justify-content: center
-        
         .footer-col
             color: colors.$whiteColor
             padding: 0 20px
             align-items: flex-start
             display: flex
-
-            figure 
+            figure
                 margin: 0 15px 0 0
                 text-align: right
-                width: 48px
-
+                min-width: 48px
             .footer-other
                 .footer-t
                     font-size: 18px
-
                 .footer-descr
                     font-size: 15px
+
+// Media queries
+
+@media all and  (max-width: 840px )
+    .footer-top
+        .footer-adv
+            flex-direction: column
+            padding: 15px
+            .footer-col:first-child
+                padding: 0
+            .footer-col:not(:first-child)
+                padding: 10px 0 0

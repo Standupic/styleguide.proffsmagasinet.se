@@ -20,18 +20,17 @@ let FooterBottomElement =
     FunctionComponent.Of(fun () ->
         div [ Class "footer-row footer-bottom" ]
             [ div [ Class "footer-col" ]
-                [ img [ Class "logo"
-                        Src optionSp ]
-                  div [ Class "copy" ] [ "@ 2018 Verktygsproffsen.se" |> str ] ]
-
-              div [ Class "footer-col" ]
                 [ div [ Class "footer-text" ] [ "Här handlar du tryggt med:" |> str ]
                   ul [ Class "list" ]
                     [ optionKlarna |> listItem
                       optionSvea |> listItem
                       optionVisa |> listItem
                       optionMC |> listItem
-                      optionAE |> listItem ] ] ]
+                      optionAE |> listItem ] ]
+              div [ Class "footer-col" ]
+                [ img [ Class "logo"
+                        Src optionSp ]
+                  div [ Class "copy" ] [ "@ 2018 Verktygsproffsen.se" |> str ] ] ]
     )
 
 storiesOf("Verktygsproffsen|Footer").add("Bottom", fun _ -> FooterBottomElement()) |> ignore
