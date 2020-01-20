@@ -25,8 +25,6 @@ let freeDeliveryImg: string = importDefault "../svg/icon-truck-gray.svg"
 let openPurchaseImg: string = importDefault "../svg/icon-box.svg"
 let secureEcomerceImg: string = importDefault "../svg/icon-lock.svg"
 
-// Footer Top Elements
-
 let FooterTopElement =
     FunctionComponent.Of(fun ( props : AccountTypeProps ) ->
 
