@@ -8,7 +8,7 @@ open CommonTypes
 
 type HeaderTopProps = {
     AccountType : AccountType
-    TelephoneType : string
+    PhoneNumber : string
 }
 
 let freeDeliveryText = function
@@ -46,7 +46,7 @@ let HeaderTop =
                             [ div [ Class "top-text" ]
                                 [ span [] [ str "Kontakta oss " ]
                                   span [ Class "bold" ]
-                                    [ str  (sprintf "%s" props.TelephoneType)] ] ]
+                                    [ str  (props.PhoneNumber)] ] ]
 
                           div [ Class "top-column" ]
                             [ span [ ] [ str (freeDeliveryText props.AccountType) ] ]
@@ -66,5 +66,5 @@ let HeaderTop =
 storiesOf("Verktygsproffsen|HeaderTop").add("HeaderTop", fun _ ->
         HeaderTop {
                     AccountType = B2B
-                    TelephoneType = "018 444 45 25"
+                    PhoneNumber = "018 444 45 25"
                  }) |> ignore
