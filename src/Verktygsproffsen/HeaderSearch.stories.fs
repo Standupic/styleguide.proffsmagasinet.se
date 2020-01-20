@@ -4,7 +4,7 @@ open Fable.React
 open Fable.React.Props
 open PM.StyleGuide.Storybook
 
-type SearchInputType = {Search: string}
+type SearchInputType = { Search: string }
 
 let HeaderSearch =
     FunctionComponent.Of(fun (props : SearchInputType) ->
@@ -21,4 +21,4 @@ let HeaderSearch =
         ]
     )
 
-storiesOf("Verktygsproffsen|Header").add("HeaderSearch", fun _ -> HeaderSearch {Search = ""}) |> ignore
+storiesOf("Verktygsproffsen|Header").add("HeaderSearch", fun _ -> HeaderSearch { Search = "" }) |> ignore
