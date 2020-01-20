@@ -47,7 +47,7 @@ let HeaderTop =
                             [ div [ Class "top-text" ]
                                 [ span [] [ str "Kontakta oss " ]
                                   span [ Class "bold" ]
-                                    [ str  (props.PhoneNumber)] ] ]
+                                    [ str  props.PhoneNumber ] ] ]
 
                           div [ Class "top-column" ]
                             [ span [ ] [ str (freeDeliveryText props.AccountType) ] ]
