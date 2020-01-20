@@ -7,7 +7,7 @@ open PM.StyleGuide.Storybook
 type SearchInputProps = { Keyword: string }
 
 let HeaderSearch =
-    FunctionComponent.Of(fun (props : SearchInputType) ->
+    FunctionComponent.Of(fun (props : SearchInputProps) ->
 
         form [ Id "searchForm"
                Class "header-search" ]
