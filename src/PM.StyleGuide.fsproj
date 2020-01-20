@@ -7,9 +7,12 @@
     <Compile Include="Logos.stories.fs" />
     <Compile Include="Colors.stories.fs" />
     <Compile Include="Typography.stories.fs" />
-    <Compile Include="Verktygsproffsen\Header.stories.fs" />
+    <Compile Include="Verktygsproffsen\CommonTypes.fs" />
+    <Compile Include="Verktygsproffsen\HeaderTop.stories.fs" />
     <Compile Include="Verktygsproffsen\Popup.stories.fs" />
-    <Compile Include="Verktygsproffsen\Search.stories.fs" />
+    <Compile Include="Verktygsproffsen\HeaderSearch.stories.fs" />
+    <Compile Include="Verktygsproffsen\HeaderCart.stories.fs" />
+    <Compile Include="Verktygsproffsen\HeaderMeduim.stories.fs" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

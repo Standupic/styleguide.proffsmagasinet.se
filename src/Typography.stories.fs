@@ -1,7 +1,6 @@
 module PM.StyleGuide.TypographyStories
 
 open Fable.Core
-open Fable.Core
 open Fable.React
 open Fable.Core.JsInterop
 open Fable.React.Props

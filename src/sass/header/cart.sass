@@ -1,0 +1,21 @@
+@use '../colors'
+.header-cart
+    background: colors.$bgHeaderCart
+    color: #fff
+    border-radius: 5px
+    cursor: pointer
+    height: 40px
+    padding: 0 15px
+    position: relative
+    text-align: right
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 10%
+    .count
+        font-size: 18px
+        &:nth-of-type(1)
+            background: url(../images/jpg/cart-ico.jpg) no-repeat right 2px
+            padding-right: 25px
+        &:nth-of-type(2)
+            flex-grow: 2

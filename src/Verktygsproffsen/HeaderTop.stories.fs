@@ -1,31 +1,38 @@
-module PM.StyleGuide.Verktygsproffsen.Header
+module PM.StyleGuide.Verktygsproffsen.HeaderTop
 
 open Fable.React
 open Fable.React.Props
 open PM.StyleGuide.Storybook
+open CommonTypes
 
-type AccountType =
-    | B2B
-    | B2C
 
-type AccountTypeProps =
-    { AccountType : AccountType }
+type HeaderTopProps =
+    {
+        AccountType : AccountType
+        PhoneNumber : string
+    }
 
 let freeDeliveryText = function
     | B2C -> "FRI FRAKT ÖVER 625 KR INCL. MOMS"
     | B2B -> "FRI FRAKT ÖVER 499 KR EXKL. MOMS"
+
 let getAccountLabel = function
     | B2C -> "Privatperson"
     | B2B -> "Företag"
 
-let Top =
-    FunctionComponent.Of(fun ( props : AccountTypeProps ) ->
+let HeaderTop =
+    FunctionComponent.Of(fun ( props : HeaderTopProps ) ->
+
 
         let accountTypeSwitchOption accountType =
             label [ Class "form-control" ]
-                [ input [ Name "accessType"; Type "radio"; Checked (accountType = props.AccountType)]
+                [ input [ Name "accessType"
+                          Type "radio"
+                          OnChange ignore
+                          Checked (accountType = props.AccountType)
+                         ]
                   span [ Class "switch" ] [ ]
-                  span [ Class "name" ] [ str (accountType |> getAccountLabel)]
+                  span [ Class "name" ] [ accountType |> getAccountLabel |> str ]
                 ]
 
         div [ Class "container" ]
@@ -40,7 +47,7 @@ let Top =
                             [ div [ Class "top-text" ]
                                 [ span [] [ str "Kontakta oss " ]
                                   span [ Class "bold" ]
-                                    [ str  "018 444 45 25" ] ] ]
+                                    [ str  props.PhoneNumber ] ] ]
 
                           div [ Class "top-column" ]
                             [ span [ ] [ str (freeDeliveryText props.AccountType) ] ]
@@ -56,4 +63,9 @@ let Top =
                 ]
             ]
     )
-storiesOf("Verktygsproffsen|Header").add("Top", fun _ -> Top {AccountType = B2B} ) |> ignore
+
+storiesOf("Verktygsproffsen|HeaderTop").add("HeaderTop", fun _ ->
+        HeaderTop {
+                    AccountType = B2B
+                    PhoneNumber = "018 444 45 25"
+                 }) |> ignore
