@@ -1,0 +1,18 @@
+@use '../colors'
+.header-meduim
+    background: colors.$bgHeaderMeduim
+    padding: 0 30px
+    height: 104px
+    .header-columns
+        height: inherit
+        display: flex
+        justify-content: space-between
+        .column
+            height: inherit
+            display: flex
+            align-items: center
+            justify-content: center
+            &:nth-of-type(2)
+                flex-grow: .1
+                .header-cart
+                    width: 100%
